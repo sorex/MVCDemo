@@ -1,0 +1,28 @@
+﻿/* 布局相关
+-----------------------------------------------------------*/
+#TopDiv
+{
+	width: 100%; /*	background:#f2f5f7 url(themes/images/TopDivBackGround.png) no-repeat;*/
+	height: 100px;
+}
+#ContentDiv
+{
+	width: 100%; /*height: 75%;*/
+}
+#LeftDiv
+{
+	width: 200px;
+	height: 100%;
+	float: left;
+	overflow: hidden;
+}
+#MainDiv
+{
+	height: 100%;
+	overflow: auto;
+}
+#BottomDiv
+{
+	width: 100%;
+	height: 20px;
+}

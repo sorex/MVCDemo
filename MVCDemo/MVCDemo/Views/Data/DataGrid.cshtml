@@ -1,0 +1,221 @@
+﻿@if (false)
+{ 
+	<link href="../../Content/Site.css" rel="stylesheet" type="text/css" />
+	<link href="../../Content/themes/base/jquery-ui-1.8.14.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="../../Scripts/jquery-1.5.1-vsdoc.js"></script>
+	<script type="text/javascript" src="../../Scripts/jquery-ui-1.8.14.js"></script>
+	<script type="text/javascript" src="../../Scripts/jquery.validate-vsdoc.js"></script>
+	<script type="text/javascript" src="../../Scripts/modernizr-1.7.js"></script>
+}
+<script type="text/javascript" src="../../Scripts/MyjQueryPager.js"></script>
+<style type="text/css">
+	.GridTable table
+	{
+		width: 100%;
+		border-collapse: collapse;
+		border-spacing: 0;
+	}
+	
+	.GridTable th, .GridTable td
+	{
+		border: 1px solid #aed0ea;
+	}
+	
+	.GridPager
+	{
+	}
+</style>
+<script type="text/javascript">
+	$(function () {
+				$(".GridTable").resizable({
+					minHeight: 150,
+					minWidth: 200,
+				});
+		var addState = function (state, el) {
+			if (el.is(":not(.ui-state-disabled)")) {
+				el.addClass("ui-state-" + state);
+			}
+		};
+		var removeState = function (state, el) {
+			el.removeClass("ui-state-" + state);
+		};
+
+		$(".GridTable").addClass("ui-widget-content");
+		$(".GridTable tr").addClass("ui-state-default");
+		$(".GridTable tr").bind("mouseover.grid", function () {
+			addState("hover", $(this));
+		});
+		$(".GridTable tr").bind("mouseout.grid", function () {
+			removeState("hover", $(this));
+		});
+		$(".GridTable td").bind("click.grid", function () {
+			var tr = $(this).closest("tr");
+			if (tr.hasClass("ui-state-highlight"))
+				removeState("highlight", tr);
+			else
+				addState("highlight", tr);
+		});
+
+		//		$(".GridPager").addClass("ui-widget-content ui-state-default ui-corner-bottom");
+		//		$(".GridPager li").css({ "list-style": "none", "float": "left" });
+		//		$(".GridPager li").bind("mouseover.grid", function () {
+		//			addState("hover", $(this));
+		//		});
+		//		$(".GridPager li").bind("mouseout.grid", function () {
+		//			removeState("hover", $(this));
+		//		});
+		//		$(".GridPager li span").each(function(){
+		//			if($(this).hasClass("ui-icon-refresh")) {
+		//				$(this).attr("title",)
+		//			}
+		//		});
+
+		$("#MyTable_FooterDiv").dataPager({
+			RecordCount: 500
+		});
+
+
+		$("#btnAdd").button({
+			icons: {
+				primary: "ui-icon-plus"
+			}
+		});
+		$("#btnDelete").button({
+			icons: {
+				primary: "ui-icon-close"
+			}
+		});
+	});
+</script>
+<div id="MyTable_HeaderDiv" class="ui-widget-header ui-corner-top">
+	<button id="btnAdd">
+		新增</button>
+	<button id="btnDelete">
+		删除</button>
+</div>
+<div id="MyTable" class="GridTable">
+	<table>
+		<thead>
+			<tr>
+				<th>
+					Col1
+				</th>
+				<th>
+					Col2
+				</th>
+				<th>
+					Col3
+				</th>
+				<th>
+					Col4
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>
+					row1cell1
+				</td>
+				<td>
+					row1cell2
+				</td>
+				<td>
+					row1cell3
+				</td>
+				<td>
+					row1cell4
+				</td>
+			</tr>
+			<tr>
+				<td>
+					row2cell1
+				</td>
+				<td>
+					row2cell2
+				</td>
+				<td>
+					row2cell3
+				</td>
+				<td>
+					row2cell4
+				</td>
+			</tr>
+			<tr>
+				<td>
+					row3cell1
+				</td>
+				<td>
+					row3cell2
+				</td>
+				<td>
+					row3cell3
+				</td>
+				<td>
+					row3cell4
+				</td>
+			</tr>
+			<tr>
+				<td>
+					row4cell1
+				</td>
+				<td>
+					row4cell2
+				</td>
+				<td>
+					row4cell3
+				</td>
+				<td>
+					row4cell4
+				</td>
+			</tr>
+			<tr>
+				<td>
+					row5cell1
+				</td>
+				<td>
+					row5cell2
+				</td>
+				<td>
+					row5cell3
+				</td>
+				<td>
+					row5cell4
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div id="MyTable_FooterDiv">
+	<table style="height: 30px">
+		<tr>
+			<td style="text-align: left; width: 33%;">
+				<ul class="ui-helper-reset ui-helper-clearfix">
+					<li><span class="ui-icon ui-icon-refresh"></span></li>
+					<li><span class="ui-icon ui-icon-search"></span></li>
+				</ul>
+			</td>
+			<td style="text-align: right; width: 33%;">
+				<ul class="ui-helper-reset ui-helper-clearfix">
+					<li><span class="ui-icon ui-icon-seek-start"></span></li>
+					<li><span class="ui-icon ui-icon-seek-prev"></span></li>
+					<li><span class="ui-icon ui-icon-seek-next"></span></li>
+					<li><span class="ui-icon ui-icon-seek-end"></span></li>
+				</ul>
+			</td>
+			<td style="text-align: right; width: 34%;">
+				第<input type="text" id="MyTable_PageIndex" style="width: 50px;" />页，共<span id=""></span>页。
+			</td>
+		</tr>
+	</table>
+</div>
+<script type="text/javascript">
+	var JsonData = {
+		"RecordCount": 50,
+		"PageSize": 20,
+		"PageIndex": 1,
+		"Head": { "Name": "姓名", "Money": "金额", "Birthday": "生日", "Remark": "备注" },
+		"Data": [{ "Name": "徐磊", "Money": 50, "Birthday": "1984-04-10", "Remark": "zzzzzzz" },
+			{ "Name": "徐磊1", "Money": 51, "Birthday": "1984-04-11", "Remark": "zzzzzzz1" },
+			{ "Name": "徐磊2", "Money": 52, "Birthday": "1984-04-12", "Remark": "zzzzzzz2"}]
+	};
+</script>

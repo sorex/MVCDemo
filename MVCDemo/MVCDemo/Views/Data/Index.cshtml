@@ -1,0 +1,81 @@
+﻿@{
+	if (false)
+	{ 
+	<script type="text/javascript" src="../../Scripts/jquery-1.5.1-vsdoc.js"></script>
+	<script type="text/javascript" src="../../Scripts/jquery-ui-1.8.14.js"></script>
+	<script type="text/javascript" src="../../Scripts/jquery.validate-vsdoc.js"></script>
+	<script type="text/javascript" src="../../Scripts/modernizr-1.7.js"></script>
+	}
+}
+<script type="text/javascript">
+	$(function () {
+		$("#btnAdd").button({
+			icons: {
+				primary: "ui-icon-plus"
+			}
+		});
+		$("#btnAdd").click(function () {
+			//alert("a");
+			$.ajax({
+				dataType: "json",
+				cache: false,
+				url: "/Data/DGetJson",
+				success: function (data, textStatus, jqXHR) {
+					data.Time = eval(data.Time.replace(/\//g, ''))
+					alert(data.Time);
+				},
+				error: function (jqXHR, textStatus, errorThrown) {
+					alert("error");
+				}
+			});
+		});
+
+
+		$("#btnPost").button({
+			icons: {
+				primary: "ui-icon-plus"
+			}
+		});
+		$("#btnPost").click(function () {
+			//var date = StringToDate("2011-6-11");
+			//var temp = { "Name": "中文", "Time": "\\/Date(" + date.getTime() + ")\\/" };
+
+			var temp = { Name: "中文", Time: "2011-6-11" };
+
+
+			$.ajax({
+				type: "POST",
+				dataType: "json",
+				cache: false,
+				url: "/Data/DGetJson",
+				//contentType: "application/json; charset=utf-8",
+				data: temp,
+				success: function (data, textStatus, jqXHR) {
+					data.Time = eval(data.Time.replace(/\//g, ''))
+					alert(data.Time);
+				},
+				error: function (jqXHR, textStatus, errorThrown) {
+					alert("error");
+				}
+			});
+		});
+	});
+
+	//+--------------------------------------------------- 
+	//| 字符串转成日期类型   
+	//| 格式 MM/dd/YYYY MM-dd-YYYY YYYY/MM/dd YYYY-MM-dd 
+	//+--------------------------------------------------- 
+	function StringToDate(DateStr) {
+		var converted = Date.parse(DateStr);
+		var myDate = new Date(converted);
+		if (isNaN(myDate)) {
+			var arys = DateStr.split('-');
+			myDate = new Date(arys[0], --arys[1], arys[2]);
+		}
+		return myDate;
+	}
+</script>
+<button id="btnAdd">
+	新增</button>
+<button id="btnPost">
+	Post</button>

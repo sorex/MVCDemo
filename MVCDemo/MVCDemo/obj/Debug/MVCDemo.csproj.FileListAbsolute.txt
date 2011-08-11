@@ -1,0 +1,7 @@
+D:\Git\MVCDemo\MVCDemo\MVCDemo\bin\MVCDemo.dll
+D:\Git\MVCDemo\MVCDemo\MVCDemo\bin\MVCDemo.pdb
+D:\Git\MVCDemo\MVCDemo\MVCDemo\bin\EntityFramework.dll
+D:\Git\MVCDemo\MVCDemo\MVCDemo\bin\EntityFramework.xml
+D:\Git\MVCDemo\MVCDemo\MVCDemo\obj\Debug\ResolveAssemblyReference.cache
+D:\Git\MVCDemo\MVCDemo\MVCDemo\obj\Debug\MVCDemo.dll
+D:\Git\MVCDemo\MVCDemo\MVCDemo\obj\Debug\MVCDemo.pdb

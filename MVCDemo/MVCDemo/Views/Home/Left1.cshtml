@@ -1,0 +1,69 @@
+﻿@{
+	ViewBag.Title = "Left1";
+}
+<script type="text/javascript">
+	$(function () {
+		ShowLeft();
+		$("#LeftAccordion").css("width", $("#LeftDiv").width() - 8);
+		$("#LeftAccordion").css("height", $("#LeftDiv").height() - 8);
+		$("#LeftAccordion").accordion({ autoHeight: false,
+			//navigation: true,
+			fillSpace: true
+		});
+		$("#LeftAccordion div a").bind("click", function () {
+			LoadMain($(this).attr("url"));
+		});
+	});
+</script>
+<div id="LeftAccordion" style="margin:4px 4px 4px 4px;">
+	<h3>
+		<a href="#">Section 1</a></h3>
+	<div>
+		<a href="#" url="/Data">data 页面</a><br />
+		<a href="#" url="/Data/DataGrid">GridTable 页面</a><br />
+		<a href="#" url="/Data/Pager">Pager 页面</a><br />
+		<a href="#" url="/Data/DataGrid">这是测试2</a><br />
+		<a href="#" url="/Data/DataGrid">这是测试2</a><br />
+		<a href="#" url="/Data/DataGrid">这是测试2</a><br />
+		<a href="#" url="/Data/DataGrid">这是测试2</a><br />
+		<a href="#" url="/Data/DataGrid">这是测试2</a><br />
+		<a href="#" url="/Data/DataGrid">这是测试2</a><br />
+		<a href="#" url="/Data/DataGrid">这是测试2</a><br />
+		<a href="#" url="/Data/DataGrid">这是测试2</a><br />
+		<a href="#" url="/Data/DataGrid">这是测试2</a><br />
+		<a href="#" url="/Data/DataGrid">这是测试2</a><br />
+		<a href="#" url="/Data/DataGrid">这是测试2</a><br />
+		<a href="#" url="/Data/DataGrid">这是测试2</a><br />
+		<a href="#" url="/Data/DataGrid">这是测试2</a><br />
+		<a href="#" url="/Data/DataGrid">这是测试2</a><br />
+		<a href="#" url="/Data/DataGrid">这是测试2</a><br />
+		<a href="#" url="/Data/DataGrid">这是测试2</a><br />
+		<a href="#" url="/Data/DataGrid">这是测试2</a><br />
+		<a href="#" url="/Data/DataGrid">这是测试2</a><br />
+		<a href="#" url="/Data/DataGrid">这是测试2</a><br />
+		<a href="#" url="/Data/DataGrid">这是测试2</a><br />
+		<a href="#" url="/Data/DataGrid">这是测试2</a><br />
+		<a href="#" url="/Data/DataGrid">这是测试2</a><br />
+		<a href="#" url="/Data/DataGrid">这是测试2</a><br />
+		<a href="#" url="/Data/DataGrid">这是测试2</a><br />
+		<a href="#" url="/Data/DataGrid">这是测试2</a><br />
+		<a href="#" url="/Data/DataGrid">这是测试2</a><br />
+		<a href="#" url="/Data/DataGrid">这是测试2</a><br />
+		<a href="#" url="/Data/DataGrid">这是测试2</a><br />
+		<a href="#" url="/Data/DataGrid">这是测试2</a><br />
+		<a href="#" url="/Data/DataGrid">这是测试2</a><br />
+		<a href="#" url="/Data/DataGrid">这是测试2</a><br />
+		<a href="#" url="/Data/DataGrid">这是测试2</a><br />
+		<a href="#" url="/Data/DataGrid">这是测试2</a><br />
+		<a href="#" url="/Data/DataGrid">这是测试2</a><br />
+		<a href="#" url="/Data/DataGrid">这是测试2</a><br />
+		<a href="#" url="/Data/DataGrid">这是测试2</a><br />
+		<a href="#" url="/Data/DataGrid">这是测试2</a><br />
+		<a href="#" url="/Data/DataGrid">这是测试2</a><br />
+	</div>
+	<h3>
+		<a href="#">Section 2</a></h3>
+	<div>
+		<a href="#">这是测试3</a>
+	</div>
+</div>

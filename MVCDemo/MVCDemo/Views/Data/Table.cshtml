@@ -2,8 +2,8 @@
 { 
 	<link href="../../Content/Site.css" rel="stylesheet" type="text/css" />
 	<link href="../../Content/themes/base/jquery-ui-1.8.14.css" rel="stylesheet" type="text/css" />
-	<script type="text/javascript" src="../../Scripts/jquery-1.5.1-vsdoc.js"></script>
-	<script type="text/javascript" src="../../Scripts/jquery-ui-1.8.14.js"></script>
+	<script type="text/javascript" src="../../Scripts/jquery-1.6.2-vsdoc.js"></script>
+	<script type="text/javascript" src="../../Scripts/jquery-ui-1.8.15.js"></script>
 	<script type="text/javascript" src="../../Scripts/jquery.validate-vsdoc.js"></script>
 	<script type="text/javascript" src="../../Scripts/modernizr-1.7.js"></script>
 }
@@ -11,9 +11,94 @@
 
 </script>
 <script type="text/javascript">
-	var data = {"Name":"徐磊",
-	
+	var jsondata = { "Name": "姓名",
+		"Max": 150,
+		"data": [{ "Name": "徐磊", "Sorce": 60, "ID": 1, "description": "按时大上大撒这是一个说明的fifth" },
+		{ "Name": "张三", "Sorce": 70, "ID": 2, "description": "这个是说明" },
+		{ "Name": "李四", "Sorce": 80, "ID": 3, "description": "这个是在另一行的说明"}]
+	}
+	$(function ()
+	{
+		//InitTable("MyTable", jsondata);
+	});
+
+	function InitTable(tableID, data)
+	{
+		var table = $("#" + tableID);
+		table.css("display", "none");
+		var headTemplate = $("thead", table).html();
+		var rowTemplate = $("tbody", table).html();
+		var re = /\$[\w\d_]+\$/g;
+
+		var headlist = headTemplate.match(re);
+		var tempheadTemplate = "";
+		if (headlist != null && headlist.length > 1)
+		{
+			tempheadTemplate = headTemplate
+			for (var i = 0; i < headlist.length; i++)
+			{
+				tempheadTemplate = tempheadTemplate.replace(new RegExp(headlist[i].replace(/\$/g, "\\$"), "g"), data[headlist[i].replace(/\$/g, "")]);
+			}
+		}
+
+		var rowlist = rowTemplate.match(re);
+		var allrow = "";
+		if (rowlist != null && rowlist.length > 1)
+		{
+			for (var j = 0; j < data["data"].length; j++)
+			{
+				var temprowTemplate = rowTemplate;
+				for (var k = 0; k < rowlist.length; k++)
+				{
+					temprowTemplate = temprowTemplate.replace(new RegExp(rowlist[k].replace(/\$/g, "\\$"), "g"), data["data"][j][rowlist[k].replace(/\$/g, "")]);
+				}
+				allrow += temprowTemplate;
+			}
+		}
+		var tempTable = table.clone(true);
+		tempTable.attr( "id",tableID + "_data" );
+		tempTable.css("display","block");
+		$("thead", tempTable).html(tempheadTemplate);
+		$("tbody", tempTable).html(allrow);
+		//$("#MyTableDiv").append('<table id="MyTable"><thead>' + tempheadTemplate + '</thead><tbody>' + allrow + '</tbody></table>');
+		var old = $("#" + tableID + "_data");
+		if (old != null)
+			old.remove();
+		table.after(tempTable);
 	}
 </script>
-<div id="MyTable">
+<button value="Init" onclick="InitTable('MyTable', jsondata);" style="width: 100px;">Init
+</button>
+<div id="MyTableDiv">
+	<table id="MyTable">
+		<thead>
+			<tr>
+				<th>
+					$Name$
+				</th>
+				<th>
+					$Max$
+				</th>
+				<th>
+					ID编号
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>
+					$ID$
+				</td>
+				<td>
+					$Name$
+				</td>
+				<td>
+					$Sorce$
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3">$description$</td>
+			</tr>
+		</tbody>
+	</table>
 </div>

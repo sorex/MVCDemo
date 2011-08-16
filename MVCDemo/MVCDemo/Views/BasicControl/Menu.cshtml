@@ -1,92 +1,31 @@
 ﻿@if (false)
 {
 	<link href="../../Content/Styles.css" rel="stylesheet" type="text/css" />
-	<script type="text/javascript" src="../../Scripts/jquery-1.6.2-vsdoc.js"></script>
-	<script type="text/javascript" src="../../Scripts/jquery-ui-1.8.15.js"></script>
-	<script type="text/javascript" src="../../Scripts/jquery.validate-vsdoc.js"></script>
-	<script type="text/javascript" src="../../Scripts/modernizr-1.7.js"></script>
+	<script src="../../Scripts/jquery-1.6.2-vsdoc.js" type="text/javascript"></script>
+	<script src="../../Scripts/jquery-ui-1.8.15.js" type="text/javascript"></script>
+	<script src="../../Scripts/Plugins/chosen.jquery.js" type="text/javascript"></script>
+	<script src="../../Scripts/Plugins/fg.menu.js" type="text/javascript"></script>
+	<script src="../../Scripts/jquery.validate-vsdoc.js" type="text/javascript"></script>
+	<script src="../../Scripts/modernizr-1.7.min.js" type="text/javascript"></script>
 }
 <style type="text/css">
-	#bar1, #bar2
-	{
-		margin: 0 0 4em;
-	}
-	/* style for this page only */
-	.ui-menu
-	{
-		width: 200px;
-		position: absolute;
-		outline: none;
-		z-index: 9999;
-	}
-	.ui-menu .ui-icon
-	{
-		float: right;
-	}
-	.ui-menu li.ui-state-disabled
-	{
-		font-weight: bold;
-		padding: .0em .4em;
-		margin: .4em 0 .2em;
-		line-height: 1.5;
-	}
+	.hidden { position:absolute; top:0; left:-9999px; width:1px; height:1px; overflow:hidden; }
 	
-	/* menubar styles */
-	.ui-menubar .ui-button
-	{
-		float: left;
-		font-weight: normal;
-		border-top-width: 0 !important;
-		border-bottom-width: 0 !important;
-		margin: 0;
-		outline: none;
-	}
-	.ui-menubar .ui-menubar-link
-	{
-		border-right: 1px dashed transparent;
-		border-left: 1px dashed transparent;
-	}
+	.fg-button { clear:left; margin:0 4px 40px 20px; padding: .4em 1em; text-decoration:none !important; cursor:pointer; position: relative; text-align: center; zoom: 1; }
+	.fg-button .ui-icon { position: absolute; top: 50%; margin-top: -8px; left: 50%; margin-left: -8px; }
+	a.fg-button { float:left;  }
+	button.fg-button { width:auto; overflow:visible; } /* removes extra button width in IE */
 	
-	.ui-menubar
-	{
-		list-style: none;
-		margin: 0;
-		padding-left: 0;
-	}
+	.fg-button-icon-left { padding-left: 2.1em; }
+	.fg-button-icon-right { padding-right: 2.1em; }
+	.fg-button-icon-left .ui-icon { right: auto; left: .2em; margin-left: 0; }
+	.fg-button-icon-right .ui-icon { left: auto; right: .2em; margin-left: 0; }
+	.fg-button-icon-solo { display:block; width:8px; text-indent: -9999px; }	 /* solo icon buttons must have block properties for the text-indent to work */	
 	
-	.ui-menubar-item
-	{
-		float: left;
-	}
-	/*
-		table {
-			border-collapse: collapse;
-		}
-		th, td {
-			padding: 0.5em;
-			border: 1px solid black;
-		}
-		*/
+	.fg-button.ui-state-loading .ui-icon { background: url(spinner_bar.gif) no-repeat 0 0; }
 </style>
-<script type="text/javascript">
-	$(function ()
-	{
-//		$("td:has(.menubar)").clone().appendTo("tbody tr:not(:first)");
 
-//		$("#bar1, .menubar").menubar({
-//			select: function (event, ui)
-//			{
-//				$("<div/>").text("Selected: " + ui.item.text()).appendTo("#log");
-//			}
-//		});
-
-		$(".menubar-icons").menubar({
-			menuIcon: true,
-			buttons: true
-		});
-	});
-</script>
-<div id="menu">
+<div id="menu" style="display:none;">
 	<ul>
 		<li><a href="#">Nunc tincidunt1</a>
 			<ul>
@@ -99,84 +38,179 @@
 		<li><a href="#">Nunc tincidunt4</a></li>
 	</ul>
 </div>
-<ul id="bar2" class="menubar-icons">
-	<li><a href="#File">File</a>
+
+<a tabindex="0" href="#news-items" class="fg-button fg-button-icon-right ui-widget ui-state-default ui-corner-all" id="flyout"><span class="ui-icon ui-icon-triangle-1-s"></span>flyout menu</a>
+<div id="news-items" class="hidden">
+<ul>
+	<li><a href="#">Breaking News</a>
 		<ul>
-			<li><a href="#Open...">Open...</a></li>
-			<li class="ui-state-disabled">Open recent...</li>
-			<li><a href="#Save">Save</a></li>
-			<li><a href="#Save as...">Save as...</a></li>
-			<li><a href="#Close">Close</a></li>
-			<li><a href="#Quit">Quit</a></li>
-		</ul>
-	</li>
-	<li><a href="#Edit">Edit</a>
-		<ul>
-			<li><a href="#Copy">Copy</a></li>
-			<li><a href="#Cut">Cut</a></li>
-			<li class="ui-state-disabled">Paste</li>
-		</ul>
-	</li>
-	<li><a href="#View">View</a>
-		<ul>
-			<li><a href="#Fullscreen">Fullscreen</a></li>
-			<li><a href="#Fit into view">Fit into view</a></li>
-			<li><a href="#Encoding">Encoding</a>
+			<li><a href="#">Entertainment</a></li>
+			<li><a href="http://www.w3schools.com/tags/html5.asp">Politics</a></li>
+			<li><a href="#">A&amp;E</a></li>
+			<li><a href="#">Sports</a>
 				<ul>
-					<li><a href="#Auto-detect">Auto-detect</a></li>
-					<li><a href="#UTF-8">UTF-8</a></li>
-					<li><a href="#UTF-16">UTF-16</a>
+					<li><a href="#">Baseball</a></li>
+					<li><a href="#">Basketball</a></li>
+					<li><a href="#">A really long label would wrap nicely as you can see</a></li>
+					<li><a href="#">Swimming</a>
 						<ul>
-							<li><a href="#Option 1">Option 1</a></li>
-							<li><a href="#Option 2">Option 2</a></li>
-							<li><a href="#Option 3">Option 3</a></li>
-							<li><a href="#Option 4">Option 4</a></li>
+							<li><a href="#">High School</a></li>
+							<li><a href="#">College</a></li>
+							<li><a href="#">Professional</a>
+								<ul>
+									<li><a href="#">Mens Swimming</a>
+										<ul>
+											<li><a href="#">News</a></li>
+											<li><a href="#">Events</a></li>
+											<li><a href="#">Awards</a></li>
+											<li><a href="#">Schedule</a></li>
+											<li><a href="#">Team Members</a></li>
+											<li><a href="#">Fan Site</a></li>
+										</ul>
+									</li>
+									<li><a href="#">Womens Swimming</a>
+										<ul>
+											<li><a href="#">News</a></li>
+											<li><a href="#">Events</a></li>
+											<li><a href="#">Awards</a></li>
+											<li><a href="#">Schedule</a></li>
+											<li><a href="#">Team Members</a></li>
+											<li><a href="#">Fan Site</a></li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li><a href="#">Adult Recreational</a></li>
+							<li><a href="#">Youth Recreational</a></li>
+							<li><a href="#">Senior Recreational</a></li>
 						</ul>
 					</li>
+					<li><a href="#">Tennis</a></li>
+					<li><a href="#">Ice Skating</a></li>
+					<li><a href="#">Javascript Programming</a></li>
+					<li><a href="#">Running</a></li>
+					<li><a href="#">Walking</a></li>
 				</ul>
 			</li>
-			<li><a href="#Customize...">Customize...</a></li>
+			<li><a href="#">Local</a></li>
+			<li><a href="#">Health</a></li>
 		</ul>
 	</li>
-</ul>
+	<li><a href="#">Entertainment</a>
+	<ul>
+		<li><a href="#">Celebrity news</a></li>
+		<li><a href="#">Gossip</a></li>
+		<li><a href="#">Movies</a></li>
+		<li><a href="#">Music</a>
+		<ul>
+			<li><a href="#">Alternative</a></li>
+			<li><a href="#">Country</a></li>
+			<li><a href="#">Dance</a></li>
+			<li><a href="#">Electronica</a></li>
+			<li><a href="#">Metal</a></li>
+			<li><a href="#">Pop</a></li>
+			<li><a href="#">Rock</a>
+				<ul>
+					<li><a href="#">Bands</a>
+						<ul>
+							<li><a href="#">Dokken</a></li>
+						</ul>
+					</li>
+					<li><a href="#">Fan Clubs</a></li>
+					<li><a href="#">Songs</a></li>
+				</ul>
+			</li>
+		</ul>
+		</li>
+		<li><a href="#">Slide shows</a></li>
+		<li><a href="#">Red carpet</a></li>
+	</ul>
+	</li>
+	<li><a href="#">Finance</a>
+	<ul>
+		<li><a href="#">Personal</a>
+		<ul>
+			<li><a href="#">Loans</a></li>
+			<li><a href="#">Savings</a></li>
+			<li><a href="#">Mortgage</a></li>
+			<li><a href="#">Debt</a></li>
+		</ul>
+		</li>
+		<li><a href="#">Business</a></li>
+	</ul>
+	</li>
+	<li><a href="#">Food &#38; Cooking</a>
+	<ul>
+		<li><a href="#">Breakfast</a></li>
+		<li><a href="#">Lunch</a></li>
+		<li><a href="#">Dinner</a></li>
+		<li><a href="#">Dessert</a>
+			<ul>
+				<li><a href="#">Dump Cake</a></li>
+				<li><a href="#">Doritos</a></li>
+				<li><a href="#">Both please.</a></li>
+			</ul>
+		</li>
+	</ul>
+	</li>
+	<li><a href="#">Lifestyle</a></li>
+	<li><a href="#">News</a></li>
+	<li><a href="#">Politics</a></li>
+	<li><a href="#">Sports</a>
+		<ul>
+			<li><a href="#">Baseball</a></li>
+			<li><a href="#">Basketball</a></li>
+			<li><a href="#">Swimming</a>
+			<ul>
+				<li><a href="#">High School</a></li>
+				<li><a href="#">College</a></li>
+				<li><a href="#">Professional</a>
+				<ul>
+					<li><a href="#">Mens Swimming</a>
+					<ul>
+							<li><a href="#">News</a></li>
+							<li><a href="#">Events</a></li>
+							<li><a href="#">Awards</a></li>
+							<li><a href="#">Schedule</a></li>
+							<li><a href="#">Team Members</a></li>
+							<li><a href="#">Fan Site</a></li>
+						</ul>
+					</li>
+					<li><a href="#">Womens Swimming</a>
+					<ul>
+						<li><a href="#">News</a></li>
+						<li><a href="#">Events</a></li>
+						<li><a href="#">Awards</a></li>
+						<li><a href="#">Schedule</a></li>
+						<li><a href="#">Team Members</a></li>
+						<li><a href="#">Fan Site</a></li>
+					</ul>
+					</li>
+				</ul>
+				</li>
+				<li><a href="#">Adult Recreational</a></li>
+				<li><a href="#">Youth Recreational</a></li>
+				<li><a href="#">Senior Recreational</a></li>
+			</ul>
+			</li>
+			<li><a href="#">Tennis</a></li>
+			<li><a href="#">Ice Skating</a></li>
+			<li><a href="#">Javascript Programming</a></li>
+			<li><a href="#">Running</a></li>
+			<li><a href="#">Walking</a></li>
+		</ul>
+		</li>
+	</ul>
+</div>
+
 <script type="text/javascript">
 	$(function ()
 	{
-		$()
+		$('#flyout').menu({
+			content: $('#flyout').next().html(),
+			flyOut: true
+		});
 	});
 </script>
 <script type="text/javascript">
-	//JQuery UI DataPager Plus
-	/*
-	* jQuery UI DataPager 
-	*
-	* Depends:
-	*	jquery.ui.core.js
-	*	jquery.ui.widget.js
-	*/
-	(function ($, undefined)
-	{
-		$.widget("ui.Jmenu", {
-			options: {
-				event: "mouseover"
-			},
-
-			_create: function ()
-			{
-				this._Jmenuify();
-			},
-
-			_Jmenuify: function ()
-			{
-				var self = this;
-				var $self = $(self.element);
-				var $ul = $self.children("ul").first();
-				var $lis = $ul.children("li");
-				var $others = $ul.children(":not(li)");
-
-
-			}
-		});
-	});
-
 </script>

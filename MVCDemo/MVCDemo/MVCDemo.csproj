@@ -132,6 +132,7 @@
     <Content Include="Content\Styles.css" />
     <Content Include="Content\themes\Plugins\basic\chosen-sprite.png" />
     <Content Include="Content\themes\Plugins\basic\chosen.css" />
+    <Content Include="Content\themes\Plugins\basic\fg.menu.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\i18n\jquery-ui-i18n.js" />
     <Content Include="Scripts\i18n\jquery.ui.datepicker-af.js" />
@@ -207,6 +208,7 @@
     <Content Include="Scripts\modernizr-1.7.min.js" />
     <Content Include="Scripts\Plugins\chosen.jquery.js" />
     <Content Include="Scripts\Plugins\chosen.jquery.min.js" />
+    <Content Include="Scripts\Plugins\fg.menu.js" />
     <Content Include="Scripts\Plugins\jquery.ui.plugins.Jdatapager.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

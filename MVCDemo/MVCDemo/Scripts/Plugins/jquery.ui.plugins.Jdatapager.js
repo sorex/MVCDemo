@@ -1,7 +1,7 @@
 ﻿/// <reference path="../jquery-1.6.2-vsdoc.js" />
 /// <reference path="../jquery-ui-1.8.15.js" />
 
-	//JQuery UI DataPager Plus
+	//JQuery UI DataPager Plugin
 	/*
 	* jQuery UI DataPager 
 	*
@@ -11,7 +11,7 @@
 	*/
 	(function ($, undefined)
 	{
-		$.widget("ui.dataPager", {
+		$.widget("ui.JdataPager", {
 			options: {
 				onPageChange: null,
 				onClickSearch: null,
@@ -36,7 +36,7 @@
 
 			_create: function ()
 			{
-				this._dataPagerify();
+				this._JdataPagerify();
 			},
 
 			_setOption: function (key, value)
@@ -59,10 +59,10 @@
 				});
 				if (refresh && self.options.onPageChange != null)
 					self.options.onPageChange(self.options.PageIndex, self.options.PageSize);
-				self._dataPagerify();
+				self._JdataPagerify();
 			},
 
-			_dataPagerify: function ()
+			_JdataPagerify: function ()
 			{
 				$(this.element).empty();
 				var self = this,
@@ -74,18 +74,18 @@
 
 				if (isNaN(BeforeButtonNumber) || BeforeButtonNumber <= 0)
 				{
-					BeforeButtonNumber = dataPagerDefault.BeforeButtonNumber;
-					o.BeforeButtonNumber = dataPagerDefault.BeforeButtonNumber;
+					BeforeButtonNumber = JdataPagerDefault.BeforeButtonNumber;
+					o.BeforeButtonNumber = JdataPagerDefault.BeforeButtonNumber;
 				}
 				if (isNaN(PageIndex) || PageIndex <= 0)
 				{
-					PageIndex = dataPagerDefault.PageIndex;
-					o.PageIndex = dataPagerDefault.PageIndex;
+					PageIndex = JdataPagerDefault.PageIndex;
+					o.PageIndex = JdataPagerDefault.PageIndex;
 				}
 				if (isNaN(PageSize) || PageSize <= 0)
 				{
-					PageSize = dataPagerDefault.PageSize;
-					o.PageSize = dataPagerDefault.PageSize;
+					PageSize = JdataPagerDefault.PageSize;
+					o.PageSize = JdataPagerDefault.PageSize;
 				}
 
 				var PageMax = Math.ceil(RecordCount / PageSize);
@@ -197,20 +197,20 @@
 						}
 						event.srcElement.value = event.srcElement.value.replace(/[^0-9]/g, "");
 					};
-					$(":text", $(this.element)).bind("keypress.dataPager", function ()
+					$(":text", $(this.element)).bind("keypress.JdataPager", function ()
 					{
 						var char = String.fromCharCode(event.keyCode);
 						var re = /[0-9]/g;
 						event.returnValue = char.match(re) != null ? true : false;
 					})
-					.bind("keyup.dataPager", filterInput)
-					.bind("change.dataPager", filterInput)
-					.bind("beforepaste.dataPager", function ()
+					.bind("keyup.JdataPager", filterInput)
+					.bind("change.JdataPager", filterInput)
+					.bind("beforepaste.JdataPager", function ()
 					{
 						var oTR = this.document.selection.createRange();
 						var text = window.clipboardData.getData("text");
 						oTR.text = text.replace(/[^0-9]/g, "");
-					}).bind("paste.dataPager", function ()
+					}).bind("paste.JdataPager", function ()
 					{
 						return false;
 					});
@@ -224,14 +224,14 @@
 					$(":text", $(this.element)).css({ "float": "left", "margin": "4px 4px 4px 4px", "text-align": "right" });
 
 					/*状态*/
-					$("span:not(span[isSpace],span[isWord])", $(this.element)).bind("mouseover.dataPager", function ()
+					$("span:not(span[isSpace],span[isWord])", $(this.element)).bind("mouseover.JdataPager", function ()
 					{
 						if ($(this).is(":not(.ui-state-disabled)"))
 						{
 							$(this).addClass("ui-state-hover");
 						}
 					});
-					$("span:not(span[isSpace],span[isWord])", $(this.element)).bind("mouseout.dataPager", function ()
+					$("span:not(span[isSpace],span[isWord])", $(this.element)).bind("mouseout.JdataPager", function ()
 					{
 						$(this).removeClass("ui-state-hover");
 					});
@@ -255,43 +255,43 @@
 					}
 
 					/*事件*/
-					$("a[pageIndex]", $(this.element)).bind("click.dataPager", function ()
+					$("a[pageIndex]", $(this.element)).bind("click.JdataPager", function ()
 					{
 						self._setOptions({ "PageIndex": $(this).attr("pageIndex") });
 					});
-					$("a.ui-icon-refresh", $(this.element)).bind("click.dataPager", function ()
+					$("a.ui-icon-refresh", $(this.element)).bind("click.JdataPager", function ()
 					{
 						self._setOptions({ "PageIndex": PageIndex });
 					});
-					$("a.ui-icon-arrowreturnthick-1-e", $(this.element)).bind("click.dataPager", function ()
+					$("a.ui-icon-arrowreturnthick-1-e", $(this.element)).bind("click.JdataPager", function ()
 					{
 						self._setOptions({ "PageIndex": $(":text", $(self.element)).val() });
 					});
 					if (PageIndex > 1 && PageIndex <= PageMax)
 					{
-						$("a.ui-icon-seek-start", $(this.element)).bind("click.dataPager", function ()
+						$("a.ui-icon-seek-start", $(this.element)).bind("click.JdataPager", function ()
 						{
 							self._setOptions({ "PageIndex": 1 });
 						});
-						$("a.ui-icon-seek-prev", $(this.element)).bind("click.dataPager", function ()
+						$("a.ui-icon-seek-prev", $(this.element)).bind("click.JdataPager", function ()
 						{
 							self._setOptions({ "PageIndex": PageIndex - 1 });
 						});
 					}
 					if (PageIndex >= 1 && PageIndex < PageMax)
 					{
-						$("a.ui-icon-seek-next", $(this.element)).bind("click.dataPager", function ()
+						$("a.ui-icon-seek-next", $(this.element)).bind("click.JdataPager", function ()
 						{
 							self._setOptions({ "PageIndex": PageIndex + 1 });
 						});
-						$("a.ui-icon-seek-end", $(this.element)).bind("click.dataPager", function ()
+						$("a.ui-icon-seek-end", $(this.element)).bind("click.JdataPager", function ()
 						{
 							self._setOptions({ "PageIndex": PageMax });
 						});
 					}
 					if (o.onClickSearch != null)
 					{
-						$("a.ui-icon-seek-search", $(this.element)).bind("click.dataPager", function ()
+						$("a.ui-icon-seek-search", $(this.element)).bind("click.JdataPager", function ()
 						{
 							if (o.onClickSearch != null)
 								o.onClickSearch();
@@ -317,13 +317,13 @@
 			}
 		});
 
-		var dataPagerDefault = {
+		var JdataPagerDefault = {
 			BeforeButtonNumber: 2,
 			PageIndex: 1,
 			PageSize: 15
 		};
 
-		$.extend($.ui.dataPager, {
+		$.extend($.ui.JdataPager, {
 			version: "0.1.0"
 		});
 	})(jQuery);

@@ -10,27 +10,27 @@
 <style type="text/css">
 	/*JQuery Pager style*/
 </style>
-<script src="../../Scripts/Plugins/jquery.ui.plugins.datapager.js" type="text/javascript"></script>
+<script src="../../Scripts/Plugins/jquery.ui.plugins.Jdatapager.js" type="text/javascript"></script>
 <script type="text/javascript">
 	//Pager Demo
 	$(function () {
-		$("#MyPager").dataPager({
+		$("#MyPager").JdataPager({
 			RecordCount: 0,
 			onPageIndexChange: function (index) {
 				if (index == 34) {
-					$("#MyPager").dataPager({ RecordCount: 120, PageSize: 15, PageIndex: 3 });
+					$("#MyPager").JdataPager({ RecordCount: 120, PageSize: 15, PageIndex: 3 });
 				}
 			}
 		});
 	});
 
 	function aaa() {
-		//$("#MyPager").dataPager({ RecordCount: 500 });
-		$("#MyPager").dataPager("option", "RecordCount", 500);
+		//$("#MyPager").JdataPager({ RecordCount: 500 });
+		$("#MyPager").JdataPager("option", "RecordCount", 500);
 
-		//var a = $("#MyPager").dataPager("option", "RecordCount");
-		//var b = $("#MyPager").dataPager("option", "PageIndex");
-		//var c = $("#MyPager").dataPager("option", "PageSize");
+		//var a = $("#MyPager").JdataPager("option", "RecordCount");
+		//var b = $("#MyPager").JdataPager("option", "PageIndex");
+		//var c = $("#MyPager").JdataPager("option", "PageSize");
 
 		//alert(a + "," + b + "," + c);
 	}

@@ -62,6 +62,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\BasicControlController.cs" />
     <Compile Include="Controllers\DataController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -129,6 +130,8 @@
     <Content Include="Content\themes\jQueryUI\redmond\jquery.ui.tabs.css" />
     <Content Include="Content\themes\jQueryUI\redmond\jquery.ui.theme.css" />
     <Content Include="Content\Styles.css" />
+    <Content Include="Content\themes\Plugins\basic\chosen-sprite.png" />
+    <Content Include="Content\themes\Plugins\basic\chosen.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\i18n\jquery-ui-i18n.js" />
     <Content Include="Scripts\i18n\jquery.ui.datepicker-af.js" />
@@ -202,7 +205,9 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\modernizr-1.7.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
-    <Content Include="Scripts\Plugins\jquery.ui.plugins.datapager.js" />
+    <Content Include="Scripts\Plugins\chosen.jquery.js" />
+    <Content Include="Scripts\Plugins\chosen.jquery.min.js" />
+    <Content Include="Scripts\Plugins\jquery.ui.plugins.Jdatapager.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -245,6 +250,12 @@
     <Content Include="Views\Data\Index.cshtml" />
     <Content Include="Views\Data\Pager.cshtml" />
     <Content Include="Views\Data\Table.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\BasicControl\Button.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\BasicControl\Menu.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

@@ -1,0 +1,182 @@
+﻿@if (false)
+{
+	<link href="../../Content/Styles.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="../../Scripts/jquery-1.6.2-vsdoc.js"></script>
+	<script type="text/javascript" src="../../Scripts/jquery-ui-1.8.15.js"></script>
+	<script type="text/javascript" src="../../Scripts/jquery.validate-vsdoc.js"></script>
+	<script type="text/javascript" src="../../Scripts/modernizr-1.7.js"></script>
+}
+<style type="text/css">
+	#bar1, #bar2
+	{
+		margin: 0 0 4em;
+	}
+	/* style for this page only */
+	.ui-menu
+	{
+		width: 200px;
+		position: absolute;
+		outline: none;
+		z-index: 9999;
+	}
+	.ui-menu .ui-icon
+	{
+		float: right;
+	}
+	.ui-menu li.ui-state-disabled
+	{
+		font-weight: bold;
+		padding: .0em .4em;
+		margin: .4em 0 .2em;
+		line-height: 1.5;
+	}
+	
+	/* menubar styles */
+	.ui-menubar .ui-button
+	{
+		float: left;
+		font-weight: normal;
+		border-top-width: 0 !important;
+		border-bottom-width: 0 !important;
+		margin: 0;
+		outline: none;
+	}
+	.ui-menubar .ui-menubar-link
+	{
+		border-right: 1px dashed transparent;
+		border-left: 1px dashed transparent;
+	}
+	
+	.ui-menubar
+	{
+		list-style: none;
+		margin: 0;
+		padding-left: 0;
+	}
+	
+	.ui-menubar-item
+	{
+		float: left;
+	}
+	/*
+		table {
+			border-collapse: collapse;
+		}
+		th, td {
+			padding: 0.5em;
+			border: 1px solid black;
+		}
+		*/
+</style>
+<script type="text/javascript">
+	$(function ()
+	{
+//		$("td:has(.menubar)").clone().appendTo("tbody tr:not(:first)");
+
+//		$("#bar1, .menubar").menubar({
+//			select: function (event, ui)
+//			{
+//				$("<div/>").text("Selected: " + ui.item.text()).appendTo("#log");
+//			}
+//		});
+
+		$(".menubar-icons").menubar({
+			menuIcon: true,
+			buttons: true
+		});
+	});
+</script>
+<div id="menu">
+	<ul>
+		<li><a href="#">Nunc tincidunt1</a>
+			<ul>
+				<li><a href="#">Nunc tincidunt5</a></li>
+				<li><a href="#">Nunc tincidunt6</a></li>
+			</ul>
+		</li>
+		<li><a href="#">Nunc tincidunt2</a></li>
+		<li><a href="#">Nunc tincidunt3</a></li>
+		<li><a href="#">Nunc tincidunt4</a></li>
+	</ul>
+</div>
+<ul id="bar2" class="menubar-icons">
+	<li><a href="#File">File</a>
+		<ul>
+			<li><a href="#Open...">Open...</a></li>
+			<li class="ui-state-disabled">Open recent...</li>
+			<li><a href="#Save">Save</a></li>
+			<li><a href="#Save as...">Save as...</a></li>
+			<li><a href="#Close">Close</a></li>
+			<li><a href="#Quit">Quit</a></li>
+		</ul>
+	</li>
+	<li><a href="#Edit">Edit</a>
+		<ul>
+			<li><a href="#Copy">Copy</a></li>
+			<li><a href="#Cut">Cut</a></li>
+			<li class="ui-state-disabled">Paste</li>
+		</ul>
+	</li>
+	<li><a href="#View">View</a>
+		<ul>
+			<li><a href="#Fullscreen">Fullscreen</a></li>
+			<li><a href="#Fit into view">Fit into view</a></li>
+			<li><a href="#Encoding">Encoding</a>
+				<ul>
+					<li><a href="#Auto-detect">Auto-detect</a></li>
+					<li><a href="#UTF-8">UTF-8</a></li>
+					<li><a href="#UTF-16">UTF-16</a>
+						<ul>
+							<li><a href="#Option 1">Option 1</a></li>
+							<li><a href="#Option 2">Option 2</a></li>
+							<li><a href="#Option 3">Option 3</a></li>
+							<li><a href="#Option 4">Option 4</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li><a href="#Customize...">Customize...</a></li>
+		</ul>
+	</li>
+</ul>
+<script type="text/javascript">
+	$(function ()
+	{
+		$()
+	});
+</script>
+<script type="text/javascript">
+	//JQuery UI DataPager Plus
+	/*
+	* jQuery UI DataPager 
+	*
+	* Depends:
+	*	jquery.ui.core.js
+	*	jquery.ui.widget.js
+	*/
+	(function ($, undefined)
+	{
+		$.widget("ui.Jmenu", {
+			options: {
+				event: "mouseover"
+			},
+
+			_create: function ()
+			{
+				this._Jmenuify();
+			},
+
+			_Jmenuify: function ()
+			{
+				var self = this;
+				var $self = $(self.element);
+				var $ul = $self.children("ul").first();
+				var $lis = $ul.children("li");
+				var $others = $ul.children(":not(li)");
+
+
+			}
+		});
+	});
+
+</script>

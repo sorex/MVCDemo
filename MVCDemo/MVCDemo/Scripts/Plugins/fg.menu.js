@@ -10,13 +10,14 @@ Copyright (c) 2009 Filament Group
 Dual licensed under the MIT (filamentgroup.com/examples/mit-license.txt) and GPL (filamentgroup.com/examples/gpl-license.txt) licenses.
 --------------------------------------------------------------------*/
 
+//Change "menu" to "fgmenu" by Jasper 2011-8-17
 
 var allUIMenus = [];
 
-$.fn.menu = function(options){
+$.fn.fgmenu = function(options){
 	var caller = this;
 	var options = options;
-	var m = new Menu(caller, options);	
+	var m = new fgMenu(caller, options);	
 	allUIMenus.push(m);
 	
 	$(this)
@@ -30,7 +31,7 @@ $.fn.menu = function(options){
 	});	
 };
 
-function Menu(caller, options){
+function fgMenu(caller, options){
 	var menu = this;
 	var caller = $(caller);
 	var container = $('<div class="fg-menu-container ui-widget ui-widget-content ui-corner-all">'+options.content+'</div>');
@@ -121,7 +122,9 @@ function Menu(caller, options){
 				case 37: // left arrow 
 					if (menuType == 'flyout') {
 						$(event.target).trigger('mouseout');
-						if ($('.'+options.flyOutOnState).size() > 0) { $('.'+options.flyOutOnState).trigger('mouseover'); };
+						//Change by Jasper 2011-8-17
+						//if ($('.' + options.flyOutOnState).size() > 0) { $('.' + options.flyOutOnState).trigger('mouseover'); };
+						if ($('.' + options.flyOutOnState, container).size() > 0) { $('.' + options.flyOutOnState, container).trigger('mouseover'); };
 					};
 					
 					if (menuType == 'ipod') {
@@ -249,7 +252,7 @@ function Menu(caller, options){
 	};
 };
 
-Menu.prototype.flyout = function(container, options) {
+fgMenu.prototype.flyout = function(container, options) {
 	var menu = this;
 	
 	this.resetFlyoutMenu = function(){
@@ -306,7 +309,7 @@ Menu.prototype.flyout = function(container, options) {
 };
 
 
-Menu.prototype.drilldown = function(container, options) {
+fgMenu.prototype.drilldown = function(container, options) {
 	var menu = this;	
 	var topList = container.find('.fg-menu');	
 	var breadcrumb = $('<ul class="fg-menu-breadcrumb ui-widget-header ui-corner-all ui-helper-clearfix"></ul>');
@@ -459,7 +462,7 @@ Menu.prototype.drilldown = function(container, options) {
 		- detectH/V: detect the viewport horizontally / vertically
 		- linkToFront: copy the menu link and place it on top of the menu (visual effect to make it look like it overlaps the object) */
 
-Menu.prototype.setPosition = function(widget, caller, options) { 
+fgMenu.prototype.setPosition = function(widget, caller, options) { 
 	var el = widget;
 	var referrer = caller;
 	var dims = {

@@ -1,0 +1,74 @@
+/*
+ * jQuery UI Menu @VERSION
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Menu#theming
+ */
+.ui-menu {
+	list-style:none;
+	padding: 2px;
+	margin: 0;
+	display:block;
+	outline: none;
+}
+.ui-menu .ui-menu {
+	margin-top: -3px;
+}
+.ui-menu .ui-menu-item {
+	margin:0;
+	padding: 0;
+	zoom: 1;
+	width: 100%;
+}
+.ui-menu .ui-menu-item a {
+	text-decoration:none;
+	display:block;
+	padding: 2px .4em;
+	line-height:1.5;
+	zoom:1;
+	font-weight: normal;
+}
+.ui-menu .ui-menu-item a.ui-state-focus,
+.ui-menu .ui-menu-item a.ui-state-active {
+	font-weight: normal;
+	margin: -1px;
+}
+
+/* nested menus */
+.ui-menu .ui-menu { position: absolute; }
+
+/* icon support */
+.ui-menu-icons { position: relative; }
+.ui-menu-icons .ui-menu-item a { position: relative; padding-left: 2em; }
+
+/* left-aligned */
+.ui-menu .ui-icon { position: absolute; top: .2em; left: .2em; }
+
+/* right-aligned */
+.ui-menu .ui-menu-icon { position: static; float: right; }
+
+/*Add by Jasper 2011-8-17*/
+.ui-menu { width: 200px; position: absolute; outline: none; z-index: 9999; }
+.ui-menu .ui-icon { float: right; }
+.ui-menu li.ui-state-disabled {
+	font-weight: bold;
+	padding: .0em .4em;
+	margin: .4em 0 .2em;
+	line-height: 1.5;
+}
+
+.ui-menubar .ui-button { float: left; font-weight: normal; border-top-width: 0 !important; border-bottom-width: 0 !important; margin: 0; outline: none; }
+.ui-menubar .ui-menubar-link { border-right: 1px dashed transparent; border-left: 1px dashed transparent; }
+
+.ui-menubar {
+	list-style: none;
+	margin: 0;
+	padding-left: 0;	
+}
+
+.ui-menubar-item {
+	float: left;  		
+}

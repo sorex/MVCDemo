@@ -84,9 +84,9 @@ Date:		September 2008
 .fg-menu a.ui-state-hover:visited,
 .fg-menu a.ui-state-hover:hover,
 .fg-menu a.ui-state-hover:active,
- .fg-menu a.ui-state-active:link,
- .fg-menu a.ui-state-active:visited,
- .fg-menu a.ui-state-active:hover,
+.fg-menu a.ui-state-active:link,
+.fg-menu a.ui-state-active:visited,
+.fg-menu a.ui-state-active:hover,
 .fg-menu a.ui-state-active:active { border-style: solid; font-weight: normal; }
 
 .fg-menu a span { display:block; cursor:pointer; }
@@ -112,3 +112,4 @@ Date:		September 2008
 .fg-menu .horizontal-divider hr { border:0; height:1px; }
 .fg-menu .horizontal-divider span { font-size:.9em; text-transform: uppercase; padding-left:.2em; }
 
+.ui-state-loading .ui-icon { background: url(spinner_bar.gif) no-repeat 0 0; }

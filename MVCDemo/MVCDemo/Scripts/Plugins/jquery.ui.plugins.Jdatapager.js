@@ -174,7 +174,7 @@
 						}
 					}
 
-					var input = "<input type='text' style='width: 50px;' value='" + PageIndex + "' />"
+					var input = "<input type='text' style='width: 50px; height:18px;' value='" + PageIndex + "' />"
 					+ "<span><a href='#' title='" + o.goText + "' class='ui-icon ui-icon-arrowreturnthick-1-e'></a></span>";
 
 					var FormatString = function (oldString)
@@ -217,7 +217,7 @@
 
 					/*样式*/
 					$(this.element).addClass("ui-widget-header ui-helper-clearfix");
-					$("div", $(this.element)).addClass("ui-helper-clearfix")
+					//$("div", $(this.element)).addClass("ui-helper-clearfix")
 					$("span:not(span[isSpace],span[isWord])", $(this.element)).addClass("ui-state-default")
 
 					$("span", $(this.element)).css({ "float": "left", "margin": "4px 4px 4px 4px", "min-width": "16px", "text-align": "center" });
